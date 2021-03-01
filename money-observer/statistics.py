@@ -1,7 +1,8 @@
 from sys import argv
+from limit import get_limits
 from datetime import datetime
 from dateutil import parser
-from limit import get_limits
+from calendar import monthrange
 
 
 def get_date():
@@ -50,9 +51,17 @@ def stat(data):
 
         percent = 0
         if limit:
-            percent = amounts[category] / limit * 100
+            percent = amounts[category] * 100 / limit
 
-        print(f'{i}. {category.ljust(10)}  -  {amounts[category]} RUB ({limit}, {percent:.2f}%)')
+        today_limit = limit * datetime.now().day // monthrange(year, month)[1]
+
+        today_percent = 0
+        if today_limit:
+            today_percent = amounts[category] * 100 / today_limit
+
+        print(f'{i}. {category.ljust(10)}  -  {amounts[category]} RUB ({limit}, {percent:.2f}%) ' +
+              f'({today_limit}, {today_percent:.2f}%)')
+
         overall += amounts[category]
         i += 1
 
