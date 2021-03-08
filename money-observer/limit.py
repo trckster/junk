@@ -15,6 +15,13 @@ def get_limits():
     return loads(json_data)
 
 
+def print_limits():
+    limits = get_limits()
+
+    for i in limits:
+        print(f'{i.ljust(10)} - {limits[i]}')
+
+
 def set_limit(categories, category, limit_amount):
     limits = get_limits()
     limits[category] = limit_amount
@@ -33,3 +40,5 @@ def limit(data):
     categories = get_categories(data)
     if argv[2] == 'set':
         set_limit(categories, argv[3], int(argv[4]))
+    elif argv[2] == 'get':
+        print_limits()
