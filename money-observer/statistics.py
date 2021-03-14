@@ -42,7 +42,7 @@ def stat(data):
                 amounts[category] = item['amount']
 
     limits = get_limits()
-    overall = 0
+    overall = limit_overall = 0
     i = 1
     for category in amounts:
         limit = 0
@@ -62,7 +62,14 @@ def stat(data):
         print(f'{i}. {category.ljust(10)}  -  {amounts[category]} RUB ({limit}, {percent:.2f}%) ' +
               f'({today_limit}, {today_percent:.2f}%)')
 
+        limit_overall += limit
         overall += amounts[category]
         i += 1
 
-    print(f'Overall: {overall} RUB')
+    percent_overall = overall * 100 / limit_overall
+    today_limit_overall = limit_overall * datetime.now().day // monthrange(year, month)[1]
+    today_percent_overall = overall * 100 / today_limit_overall
+
+    print()
+    print(f'Overall: {overall} RUB ({limit_overall}, {percent_overall:.2f}%) ' +
+          f'({today_limit_overall}, {today_percent_overall:.2f}%)')
