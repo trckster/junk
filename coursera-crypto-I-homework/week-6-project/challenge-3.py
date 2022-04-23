@@ -15,6 +15,9 @@ A = gmpy2.isqrt(n24 - 1) + 1
 # 3(p ** 2) - Ap + 2N = 0
 # Here we have simple quadratic equation and our goal is to solve it for each A
 # until we find suitable (s.t. N % x == 0) roots of this equation!
+#
+# UPD: In fact, it turns out, that sqrt(6N) is VERY near (3p + 2q) / 2, so there is no need to bruteforce A,
+# initial value suits (cycle is excess)
 
 a = 3
 c = 2 * N
