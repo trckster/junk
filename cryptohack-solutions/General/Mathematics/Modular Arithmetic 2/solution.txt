@@ -1,0 +1,2 @@
+According to the Fermat's little theorem if a is not divisable by p and p is prime, then a ** (p - 1) = 1 (mod p).
+Since 65537 is prime and 273246787654 % 65537 != 0 and we need to find (273246787654 ** 65536) % 65537, we can assert that answer is 1.
