@@ -1,0 +1,3 @@
+Go to crt.sh and type cryptohack.org, there will be desired domain.
+Search by modulus from certificate didn't work for me on search.censys.io.
+If you know intended solution, please, tell me.
