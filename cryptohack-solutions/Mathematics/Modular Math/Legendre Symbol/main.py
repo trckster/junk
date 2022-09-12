@@ -21,7 +21,7 @@ for n in ints:
         break
 
 # https://www.staff.uni-mainz.de/pommeren/Cryptology/Asymmetric/5_NTh/SqRprim.pdf
-power = (p // 2 - 1) // 2 + 1
+power = p // 4 + 1
 answer = pow(qr, power, p)
 
 print(answer)
