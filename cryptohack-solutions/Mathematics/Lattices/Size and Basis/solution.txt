@@ -1,0 +1,6 @@
+Given the vector v = (4, 6, 2, 5), calculate its size.
+
+sqrt(v ∙ v) = sqrt((4, 6, 2, 5) ∙ (4, 6, 2, 5)) = sqrt(4 * 4 + 6 * 6 + 2 * 2 + 5 * 5) =
+= sqrt(16 + 36 + 4 + 25) = sqrt(81) = 9
+
+Answer: 9.
